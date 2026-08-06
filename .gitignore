@@ -1,0 +1,25 @@
+# IntelliJ
+.idea/
+*.iml
+
+# Target folders
+**/target/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Database volumes
+mysql_keycloak_data/
+mongo-data/
+postgres-order/
+postgres-inventory/
+
+# Docker volumes
+*.sock
