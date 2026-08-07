@@ -65,7 +65,8 @@ services:
     command: [ "start-dev", "--import-realm" ]
     environment:
       DB_VENDOR: MYSQL
-      DB_ADDR: mysql
+#      DB_ADDR: mysql
+      DB_ADDR: keycloak-mysql
       DB_DATABASE: keycloak
       DB_USER: keycloak
       DB_PASSWORD: password
@@ -114,7 +115,7 @@ services:
   discovery-server:
     image: hardik1130/discoveryserver:latest
     container_name: discoveryserver
-    pull_policy: always
+#    pull_policy: always
     ports:
       - "8761:8761"
     environment:
@@ -125,7 +126,7 @@ services:
   api-gateway:
     image: hardik1130/api-gateway:latest
     container_name: api-gateway
-    pull_policy: always
+#    pull_policy: always
     ports:
       - "8181:8080"
     expose:
@@ -142,7 +143,7 @@ services:
   product-service:
     container_name: product-service
     image: hardik1130/product-service:latest
-    pull_policy: always
+#    pull_policy: always
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     depends_on:
@@ -154,7 +155,7 @@ services:
   order-service:
     container_name: order-service
     image: hardik1130/order-service:latest
-    pull_policy: always
+#    pull_policy: always
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-order:5431/order-service
@@ -169,7 +170,7 @@ services:
   inventory-service:
     container_name: inventory-service
     image: hardik1130/inventory-service:latest
-    pull_policy: always
+#    pull_policy: always
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-inventory:5432/inventory-service
@@ -182,7 +183,7 @@ services:
   notification-service:
     container_name: notification-service
     image: hardik1130/notification-service:latest
-    pull_policy: always
+#    pull_policy: always
     environment:
       - SPRING_PROFILES_ACTIVE=docker
     depends_on:
