@@ -17,12 +17,13 @@ public class InventoryService {
 
     private final InventoryRepository inventoryRepository;
 
+    public InventoryService(InventoryRepository inventoryRepository) {
+        this.inventoryRepository = inventoryRepository;
+    }
+
     @Transactional(readOnly=true)
     @SneakyThrows
     public List<InventoryResponse> isInStock(List<String> skuCode) {
-        log.info("Wait Started");
-//        Thread.sleep(10000);
-        log.info("Wait Ended");
         return inventoryRepository.findBySkuCodeIn(skuCode)
                 .stream()
                 .map(inventory ->
